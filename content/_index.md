@@ -15,4 +15,4 @@ You can also clone the [source code][gh] for this course.
 [kyle]: https://halek.co
 [blog]: @/blog/_index.md
 [rss]: rss.xml
-[gh]: https://github.com/khale/mem-systems-w25
+[gh]: https://github.com/khale/mem-systems-w26
