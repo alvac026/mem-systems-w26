@@ -46,11 +46,11 @@ already has a slide deck available online, feel free to use that, or a subset of
 - Gather everyone's work from your lab no later than one week from discussion day into a blog post on the [website github][gh].
   Make clear everyone's roles. You submit the blog post via a pull request to the github site.
 
-**Everyone must be a paper leader at least once.**
+**Everyone should be a paper leader/co-leader at least once.**
 
-#### If you are in the presentation group
+#### If you are in the presentation group/lab
 
-- Blogger/Reviewer: submit a summary of the paper (and your interpretations/opinions/thoughts about it)
+- **Blogger**: submit a summary of the paper (and your interpretations/opinions/thoughts about it)
   to the paper leader. It should include
   * Background you think the audience needs to understand the paper
   * Detailed summary of the main contributions of the paper. Don't just summarize; include your thoughts
@@ -58,13 +58,13 @@ already has a slide deck available online, feel free to use that, or a subset of
   * Context of where the work fits in and why it's important for the field. 
   * Identify strengths and weaknesses of the paper (both those you've identified, and those
     identified by others in in-class and online discussions)
-- Scribe: Take good notes of the in-class discussion and submit to the blogger to include in the blog post
+- **Scribe**: Take good notes of the in-class discussion and submit to the blogger to include in the blog post
 
-**Everyone must take on each of these roles at least once.**
+**Everyone should try to take on each of these roles (even as a team of more than one) at least once.**
 
 #### Everyone
 Participate in the online and in-class discussions. Once the paper leader has created the discussion thread,
-give your thoughts on the paper. This does not need to be long, just a few senetences is okay. You can 
+give your thoughts on the paper. This does not need to be long, just a few sentences is okay. You can 
 also respond to others' posts, and this counts as well. 
 
 ### Research Project
