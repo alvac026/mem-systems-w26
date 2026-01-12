@@ -19,7 +19,6 @@ readings = ["drepper"]
 # Basics: DRAM/SRAM/MC
 [[classes]]
 lesson = 3
-title = "Hardware: HBM and Chiplets"
 leader = "Lab 1: Deptmer Martin Ashley and John Aebi"
 readings = ["lee-tiered"]
 
