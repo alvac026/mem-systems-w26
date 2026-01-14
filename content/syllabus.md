@@ -88,7 +88,7 @@ answering these questions:
 
 You should also list the GitHub usernames of everyone in the group.
 
-After you submit the PR on GitHub, submit its URL to the "Project Proposal" assignment on Canvas. I will give
+After you create the issue on GitHub, submit its URL to the "Project Proposal" assignment on Canvas. I will give
 feedback on GitHub on the project. 
 
 [proposal]: https://github.com/khale/mem-systems-w26/issues/new?labels=proposal&template=project-proposal.md&title=Project+%5BNUMBER%5D+Proposal%3A+%5BTITLE%5D
