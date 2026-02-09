@@ -39,26 +39,25 @@ Overall this paper goes into detail about how these problems can be minimized by
 # Implementation
 The nuKSM has 3 main goals to achieve when implementing this on top of the already existing KSM in Linux kernel version 5.4.0:
 *  Addressing Performance Variability and Unfairness.
+	*  Keeps a de-duplicated page on a NUMA node that is expected to access that page often.
+	*  NUMA-Tax is paid when accessing a page on a remote node. This Tax is much smaller the more infrequently a node may access remote memory.
+	*  Acts to evenly distribute this Tax among all nodes by checking the amount of times data is accessed by nodes and tries to distribute how much “Tax” each of them will pay in order to access said data.
+	*  Requires knowledge of access frequency of pages to be de-duplicated. Uses accessed and referenced bits already available in the page reclamation algorithm in Linux.
 
-**  Keeps a de-duplicated page on a NUMA node that is expected to access that page often.
-**  NUMA-Tax is paid when accessing a page on a remote node. This Tax is much smaller the more infrequently a node may access remote memory.
-**  Acts to evenly distribute this Tax among all nodes by checking the amount of times data is accessed by nodes and tries to distribute how much “Tax” each of them will pay in order to access said data.
-**  Requires knowledge of access frequency of pages to be de-duplicated. Uses accessed and referenced bits already available in the page reclamation algorithm in Linux.
 *  Priority Based Memory De-Duplication
-	
-**  Creates a way to program priority for a virtual machine with a higher priority allowing for more access to local memory.
-**  nuShare equation used to calculate if a process should have more priority than all others that share the soon to be de-duplicated page. 
-**  This value means the higher it is, the more likely it will be local to that process.
-**  Compared to a random number between 0 and 1 if nuShare is larger than this number, then the scanned page will be de-duplicated and local to said process.
-**  Makes it so the ratio of priority between processes converges (meaning that the ratios are reflected in the amount of pages being de-duplicated).
-*  Enhancing Responsiveness
+	*  Creates a way to program priority for a virtual machine with a higher priority allowing for more access to local memory.
+	*  nuShare equation used to calculate if a process should have more priority than all others that share the soon to be de-duplicated page. 
+	*  This value means the higher it is, the more likely it will be local to that process.
+	*  Compared to a random number between 0 and 1 if nuShare is larger than this number, then the scanned page will be de-duplicated and local to said process.
+	*  Makes it so the ratio of priority between processes converges (meaning that the ratios are reflected in the amount of pages being de-duplicated).
 
-**  Utilization of forests (many unstable and stable trees) instead of a single stable and unstable tree.
-**  The index of a page is found by a function of the checksum of that page (index = page_checksum(page) % number of trees).
-**  If pages index into different trees they will never be compared so this will reduce the amount of unnecessary page comparisons.
-**  This is scalable because the amount of trees reflects the amount of physical memory. If memory is doubled the amount of trees will be proportionally doubled to fit that amount of physical memory.
-**  Makes the average height of a tree stay the same which would limit tree traversal and then makes the amount of comparisons similar. This makes it scalable for many different systems with different memory sizes.
-**  One stable and one unstable tree will have around 100MiB each which balances cost and benefit of using a de-centralized forest.
+*  Enhancing Responsiveness
+	*  Utilization of forests (many unstable and stable trees) instead of a single stable and unstable tree.
+	*  The index of a page is found by a function of the checksum of that page (index = page_checksum(page) % number of trees).
+	*  If pages index into different trees they will never be compared so this will reduce the amount of unnecessary page comparisons.
+	*  This is scalable because the amount of trees reflects the amount of physical memory. If memory is doubled the amount of trees will be proportionally doubled to fit that amount of physical memory.
+	*  Makes the average height of a tree stay the same which would limit tree traversal and then makes the amount of comparisons similar. This makes it scalable for many different systems with different memory sizes.
+	*  One stable and one unstable tree will have around 100MiB each which balances cost and benefit of using a de-centralized forest.
 
 # Evaluation and Results
 The authors conducted a study on a dual-socket Intel Xeon Gold 6140 server with 18 cores and 192 GiB memory per socket. Base frequency for the processor is  3.2 GHz. Using Linux v5.4.0 with the kernel running Ubuntu18.04 guest OS. They extended the same kernel to test KSM vs nuKSM. Both of these operate at the same scan rate for pages (1K pages every 100ms). They executed VM on specific nodes VM-0 running on node-0 and executed instance-0 of the applications, VM1 would run on node-1 and executes instance-1. They then would test specific workloads and logged memory intensive micro-benchmarks that are specifically sensitive to NUMA.
@@ -89,14 +88,14 @@ Weaknesses:
 
 # Class Discussion
 *  Does nuKSM have checks for how much memory is available on different NUMA nodes?
-**  Not addressed, KSM will merge by default (last node accessed)
-**  nuKSM often not implemented due to low-level issues, often solved before needing nuKSM implementation
+	*  Not addressed, KSM will merge by default (last node accessed)
+	*  nuKSM often not implemented due to low-level issues, often solved before needing nuKSM implementation
 *  Servers often just disable KSM due to availability
-**  Good to look into how much memory KSM saves over large periods of time
-**  Memory may not have been as cheap when paper was proposed
+	*  Good to look into how much memory KSM saves over large periods of time
+	*  Memory may not have been as cheap when paper was proposed
 *  Modifying KSM may not be the best solution to solving the NUMA problem
-**  Hard to implement KSM methods especially with increasing non-unified memory (NVLink, RDMA, etc.)
-**  Works under the assumption that memory capacity is needed
+	*  Hard to implement KSM methods especially with increasing non-unified memory (NVLink, RDMA, etc.)
+	*  Works under the assumption that memory capacity is needed
 
 # Conclusion
 Overall, nuKSM demonstrates that memory de-duplication and NUMA management cannot be treated as independent systems on modern multi-socket servers. While KSM is effective at reducing memory usage, its NUMA-unaware design leads to unfair performance variability and priority subversion. nuKSM addresses these issues by making de-duplication decisions based on access frequency, priority, and scalability, resulting in more balanced performance without sacrificing memory savings. Although real-world adoption may be limited due to implementation complexity and changing hardware trends, the paper highlights an important systems lesson that optimizing one kernel subsystem in isolation can create significant side effects elsewhere, and that NUMA-awareness is critical for predictable performance on modern architectures.
