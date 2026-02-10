@@ -18,7 +18,7 @@ name = "Kabir Vidyarthi(Blogger)"
 
 # Introduction
 
-First let us start with the physical structure of a DRAM. At the lowest level Dram is a two dimensional Grid of Cells and each Cell stores either 0 or 1. The cells are mode of two components i)Capacitor - the one that holds the electrical charge ii) Access Transistor - these act as switch, that locks/releases the charge in the capacitors.
+First let us start with the physical structure of a DRAM. At the lowest level Dram is a two dimensional Grid of Cells and each Cell stores either 0 or 1. The cells are made of two components i) Capacitor - the one that holds the electrical charge ii) Access Transistor - these act as switches that lock/release the charge in the capacitors.
 
 
 
@@ -31,32 +31,32 @@ First let us start with the physical structure of a DRAM. At the lowest level Dr
 
 ##### The Access:
 
-Computer cannot access single cell directly, it has to get a entire row if a data first and memory controller controls this process. To read a cell the memory controller issues an activate command and this triggers(high voltage) the voltage of a specific wordline, which turns on all the access transistors of that row, connecting each capacitors to it corresponding bitlines.
+Computer cannot access a single cell directly, it has to get an entire row of data first, and memory controller controls this process. To read a cell, the memory controller issues an activate command and this triggers(high voltage) the voltage of a specific wordline, which turns on all the access transistors of that row, connecting each capacitor to its corresponding bitline.
 
 
 
 ## But before we go further we need to understand what happens when Dram reads first
 
 * Precharge - The memory keeps the bitline to Vdd/2 (neutral position). Bitlines are seen as bigger capacitors than the cells.
-* Activate - When the activate commands connects the cell capacitors to the bitlines, the cell shares charge with the bitline. As a result the bitline moves a tiny bit up/down from vdd/2 (as the cell capacitor charge is much smaller compared to the bitline charge).
-* Sense Amplify - This tiny movement is noticed and amplified by this sense amplifier and it drives it hard towards the noticed direction too. That is tiny up becomes full 1 for bitline and tiny down becomes full 0 for bitline.
+* Activate - When the activate commands connects the cell capacitors to the bitlines, the cells share charge with the bitlines. As a result the bitline moves a tiny bit up/down from vdd/2 (as the cell capacitor charge is much smaller compared to the bitline charge).
+* Sense Amplify - This tiny movement is noticed and amplified by this sense amplifier and it drives it hard towards the noticed direction too. That is tiny up becomes full 1 for bitline and tiny down becomes full 0.
 * Restore - While it is amplifying the btiline it also starts restoring the cell capacitors to its original value or threshold value.
 
-Once the read is done, the row values are in the row buffer (sense amp) and cell values can be accessed quickly.
+Once the read is done, the row values are in the row buffer and cell values can be accessed quickly.
 
-* Precharge again - Once the row is closed, bitline precharging starts again that is bring to it is Vdd/2 level again for next row access.
+* Precharge again - Once the row is closed, bitline precharging starts again that is bringin to its Vdd/2 level again for next row access.
 
 
 
 ##### Dram Refresh:
 
-Since the cells are capacitors, it tends to leak and lose charge overtime, so Dram needs to refreshed (restoring its charge to is orginal or threshold value)
+Since the cells are capacitors, they tend to leak and lose charge overtime, so Dram needs to be refreshed (restoring its charge to is orginal or threshold value)
 
 
 
 ## Row Hammer Mechanism and Error:
 
-Now that we know how a Dram access happens, let us see what rowhammer error is. Memory chips are getting smaller and smaller and more cells are getting crammed up into smaller spaces, and because of this tight packaging interference is happening (electromagnetic coupling). And also since the cells are getting smaller too for more density, they hold less charge therefore losing or leaking charge and going below threshold is easier.
+Now that we know how a Dram access happens, let us see what rowhammer error is. Memory chips are getting smaller and smaller and more cells are getting crammed up into smaller spaces, and because of this tight packaging, interference is happening (electromagnetic coupling). And also since the cells are getting smaller too for more density, they hold less charge therefore losing or leaking charge and going below threshold is easier.
 
 
 
@@ -91,7 +91,7 @@ This findings were alarming as memory is assigned to programs as pages. So one r
 
 ## Solution:
 
-* ECC fix - This is not a complete fix as Rowhammer can produce multiple bit flips in the same ECC word and ECC cannot repair multiple errors. It doesn't stop the error, rather tries to flag/repair it (some of it).
+* ECC fix - This is not a complete fix, as Rowhammer can produce multiple bit flips in the same ECC word and ECC cannot repair multiple errors. It doesn't stop the error, rather tries to flag/repair it (some of it).
 * Frequent Refresh - This does solve the problem but it very power hungry. And also refreshing the whole memory is too slow.
 
 
@@ -100,7 +100,7 @@ This findings were alarming as memory is assigned to programs as pages. So one r
 
  	i) Every time the controller closes a row R it flips a biased coin with probability p (refresh)
 
- 	ii) If the coin hits, the controller refreshes on adjacent row (it could be R-1 or R+1, best is to do it 			alternatively)
+ 	ii) If the coin hits, the controller refreshes on adjacent row (it could be R-1 or R+1, best is to do it alternatively)
 
  	iii) If it misses, do nothing.
 
@@ -152,5 +152,5 @@ This work shows that Rowhammer is not just a theoretical error. It constitutes a
 
 ## AI Disclosure
 
-* Generative AI was used to aid in research and formatting for this blog post
+* Generative AI was used to aid in formatting for this blog post
 * Generative AI can be useful tools for tasks such as summarizing or drafting, however, they may give inaccurate information confidently and should always have generated information validated
