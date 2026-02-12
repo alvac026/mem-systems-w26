@@ -84,6 +84,7 @@ lesson = 11
 title = "NVM"
 leader = "Lab 1: Soren & Nolan"
 readings = ["empirical"]
+paper_slides = "https://canvas.oregonstate.edu/courses/2028992/files/116536687?module_item_id=26528199"
 
 
 [[classes]]
