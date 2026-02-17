@@ -79,6 +79,7 @@ title = "Persistent Memory"
 leader = "Lab 4: Isaac Lonergan"
 readings = ["wsp"]
 paper_slides = "https://canvas.oregonstate.edu/courses/2028992/files/116487406?module_item_id=26523574"
+blog_link = "../blog/whole-system-persistence"
 
 [[classes]]
 lesson = 11
