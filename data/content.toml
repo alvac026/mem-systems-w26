@@ -86,7 +86,7 @@ title = "NVM"
 leader = "Lab 1: Soren & Nolan"
 readings = ["empirical"]
 paper_slides = "https://canvas.oregonstate.edu/courses/2028992/files/116536687?module_item_id=26528199"
-blog_link = "../blog/An-Empirical-Guide-to-the-Behavior-and-Use-of-Scalable-Persistent-Memory"
+blog_link = "../blog/an-empirical-guide-to-the-behavior-and-use-of-scalable-persistent-memory"
 
 
 [[classes]]
