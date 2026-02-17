@@ -7,7 +7,7 @@ name = " Allen Lee(Leader / Presentor)"
 [[extra.authors]]
 name = "Jared Ho(Scribe)"
 [[extra.authors]]
-name = "Deptmer Ashely(Scribe)"
+name = "Deptmer Ashley(Scribe)"
 [[extra.authors]]
 name = "John Aebi(Blogger)"
 [[extra.authors]]
