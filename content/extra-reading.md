@@ -9,6 +9,7 @@ hide = false
 ## Other Memory Papers
 - Onur Mutlu: [Research Problems and Opportunities in Memory Systems](https://pdl.cmu.edu/PDL-FTP/NVM/memory-systems-research_superfri14.pdf)
 - [TMO](https://www.cs.cmu.edu/~dskarlat/publications/tmo_asplos22.pdf), Meta's memory offloading infrastructure. 
+- [EMT](https://www.usenix.org/conference/osdi25/presentation/chai-siyuan) - OSDI '25
 
 ### Disaggregated Memory
 - [LegoOS: A Disseminated, Distributed OS for Hardware Resource Disaggregation](https://www.usenix.org/conference/osdi18/presentation/shan) - OSDI '18
@@ -17,7 +18,9 @@ hide = false
 - [GiantVM: A Novel Distributed Hypervisor for Resource Aggregation with DSM-aware Optimizations
 ](https://dl.acm.org/doi/10.1145/3505251) - TACO 19(2) 2024
 - [Managing Memory Tiers with CXL in Virtualized Environments](https://www.usenix.org/system/files/osdi24-zhong-yuhong.pdf) - OSDI '24
+- [Serverless End Game: Disaggregation enabling Transparency](https://arxiv.org/abs/2006.01251) - SESAME '24
 - [vtism: Efficient Tiered Memory Management for Virtual Machines with CXL](https://dl.acm.org/doi/10.1145/3757347.3759131) - SYSTOR '25
+- [Tiered Memory Management Beyond Hotness](https://www.usenix.org/conference/osdi25/presentation/liu) - OSDI '25
 
 ### PMEM
 - [Mnemosyne: lightweight persistent memory](https://dl.acm.org/doi/10.1145/1950365.1950379) - ASPLOS '11
@@ -48,6 +51,8 @@ hide = false
 - [vAttention](https://arxiv.org/abs/2405.04437) - ASPLOS '25
 - [WaferLLM](https://www.usenix.org/conference/osdi25/presentation/he) - OSDI '25
 - [BlitzScale](https://www.usenix.org/conference/osdi25/presentation/zhang-dingyan) - OSDI '25
+- [GPU Multitasking](https://arxiv.org/pdf/2508.08448) - 2025
+- [Prism](https://arxiv.org/abs/2505.04021) - 2025
 
 ## Miscellaneous Research Advice
 Here are some extra readings containing priceless advice on conducting systems research (and research more broadly)
