@@ -42,8 +42,10 @@ hide = false
 ### AI
 - [Alpa](https://www.usenix.org/conference/osdi22/presentation/zheng-lianmin) - OSDI '22
 - [Orca](https://www.usenix.org/conference/osdi22/presentation/yu) - OSDI '22
-- [vAttention](https://arxiv.org/abs/2405.04437) - ASPLOS '25
+- [FlashAttention](https://arxiv.org/abs/2205.14135) - NeurIPS '22
+- [RingAttention](https://arxiv.org/pdf/2310.01889) - 2023
 - [SGLang](https://arxiv.org/abs/2312.07104) - NeurIPS '24
+- [vAttention](https://arxiv.org/abs/2405.04437) - ASPLOS '25
 - [WaferLLM](https://www.usenix.org/conference/osdi25/presentation/he) - OSDI '25
 - [BlitzScale](https://www.usenix.org/conference/osdi25/presentation/zhang-dingyan) - OSDI '25
 
