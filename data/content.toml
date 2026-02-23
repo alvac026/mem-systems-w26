@@ -106,9 +106,10 @@ paper_slides = "https://canvas.oregonstate.edu/courses/2028992/files/116679443?m
 
 [[classes]]
 lesson = 15
-title = "Memory Pooling & Disaggregation"
+title = "Memory Pooling & Disaggregation (online)"
 leader = "Lab 4: Shubhangi Pandey & Sam Shaaban"
 readings = ["pond"]
+paper_slides = "https://canvas.oregonstate.edu/courses/2028992/files/116755132?module_item_id=26551703"
 
 [[classes]]
 lesson = 16
